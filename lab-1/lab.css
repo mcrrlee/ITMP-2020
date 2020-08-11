@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    background-color: #ffe4e4;
+}
+.row {
+   
+    
+    padding: 4px 2px 12px 12px;
+    color : #848ccf;
+    background-color: #ffffff;
+    margin: 0px 600px;
+    
+}
+h2{
+    color : #ffe4e4;
+ 
+    margin: 10px 600px;
+    background-color: #be5683
+}
+h3{
+    color : #93b5e1;
+    text-shadow: 1px 1px 1px #848ccf;
+    margin: 10px 600px;
+}
