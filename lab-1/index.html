@@ -13,7 +13,7 @@
 		<input type="number" v-model="row">
 		<div class="space"></div>
 		<h2>สูตรคูณแม่ {{number}} </h2>
-		<h3>สูตรคูณก่อนหน้า -> แม่ {{before_n}}</h3>
+		<h3>สูตรคูณแม่ก่อนหน้า -> แม่ {{before_n}}</h3>
 		<h3 class = "row" v-for="i in r">{{number}} x {{i}} = {{x(i)}}</h3>
 		<h3>ผลรวมสูตรคูณ = {{sum(row)}}</h3>
 	</div>
