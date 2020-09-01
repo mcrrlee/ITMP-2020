@@ -57,10 +57,11 @@
 			methods: {
 				check:function(e){
 					console.log(e)
+					
 				},
 				correct:function(){
 					this.row = rand(2,6)
-					this.pick= rand(1,6)
+					this.pick= rand(1,this.row*this.row)
 					
 					console.log('COrrect')
 				}
