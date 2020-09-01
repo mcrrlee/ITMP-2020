@@ -10,7 +10,7 @@
 	<div id="canvas">
 		<section id="canvas_header">
 			<div>
-				เหลือเวลา 10 วินาที
+				เหลือเวลา {{time}} วินาที
 			</div>
 		</section>
 		<section id="canvas_main">
@@ -21,23 +21,22 @@
 					'--h':h,
 					'--l':l+'%',
 					
-				}":
-				data-pick= "i==pick"
-				@click="check(i==pick)">
-			</a-dot>
+				}":data-pick= "i==pick"
+				@click="check(i == pick)"
+				></a-dot>
 				
 			</main>
 		</section>
 		<section id="canvas_footer">
 			<div>
-				0 คะแนน
+				{{score}}
 			</div>
 		</section>
 	</div>
 
 	<script>
 		let picklight = "80%" //เลือกว่ารอบนี้ อันพิเศษจะมีความสว่าง 20%
-		document.registerElement('a-dot') //ให้ vue รู้จัก a-dot
+		//document.registerElement('a-dot') //ให้ vue รู้จัก a-dot
 
 		function rand(start,stop){//สร้างฟังก์ชัน random ไว้ใช้
 			let shift = (stop-start)+1
@@ -57,12 +56,17 @@
 			methods: {
 				check:function(e){
 					console.log(e)
+					if (e==true){
+						app.correct()
+					}
 					
 				},
 				correct:function(){
 					this.row = rand(2,6)
 					this.pick= rand(1,this.row*this.row)
-					
+					this.h= rand(50,250)
+					this.l= rand(40,80)
+					app.score+=10
 					console.log('COrrect')
 				}
 			}
