@@ -56,8 +56,15 @@
 			methods: {
 				check:function(e){
 					console.log(e)
-					if (e==true){
+					if (this.time > 0){
+						if (e==true){
 						app.correct()
+					}else{
+						app.incorrect()
+					}
+					
+					}else{
+						console.log('Game Over')
 					}
 					
 				},
@@ -66,8 +73,11 @@
 					this.pick= rand(1,this.row*this.row)
 					this.h= rand(50,250)
 					this.l= rand(40,80)
-					app.score+=10
+					app.score+=1
 					console.log('COrrect')
+				},
+				incorrect:function(){
+					app.score-=1
 				}
 			}
 		})
