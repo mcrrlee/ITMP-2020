@@ -67,12 +67,19 @@ div.box{
 	background-color: #333;
 }
 .box._toggle{
-	background-color: yellow;
-	transition: none;
-	opacity: .5;
+	background-image: url(a.png);
+	
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	transform: rotate(-90deg);
 }
 .box._toggle[data-isrightarrow="0"]{
-	background-color: red;
+	background-image: url(a.png);
+	background-size: 100%;
+	transform: rotate(0deg);
+	
 }
 
 
