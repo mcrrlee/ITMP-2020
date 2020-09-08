@@ -99,6 +99,12 @@
 
 						else if (this.fruits[f].pst == 12  && this.fruits[f].type == 11&&this.fruits[f].run) {
 								this.score ++
+							}else if (this.fruits[f].pst == 12  && this.fruits[f].type == 16&&this.fruits[f].run) {
+								clearInterval(playing)
+								this.play = false
+							}else if (this.fruits[f].pst == 16  && this.fruits[f].type == 16&&this.fruits[f].run) {
+								clearInterval(playing)
+								this.play = false
 							}
 						
 
