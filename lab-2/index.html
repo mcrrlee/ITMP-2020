@@ -8,20 +8,26 @@
 </head>
 <body>
 	<div id="app">
-		About
+		Make Up 
 		
-		<h3>Name : {{person.properties.name}}</h3>
-		<h3>Address : {{person.properties.address}}</h3>
-		<h3>Tel : {{person.properties.tel}}</h3>
-		<h3>Web : {{person.properties.web}}</h3>
-		<h3>Fax : {{person.properties.fax}}</h3>
-		Users
-		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">{{u.properties.name}}</h2>
+		<h3>Id : {{person.id}}</h3>
+		<h3>Name : {{person.name}}</h3>
+		<h3>Brand : {{person.brand}}</h3>
+		<h3>Price : {{person.price}} {{person.price_sign}}</h3>
+		<h3>Link : {{person.product_link}}</h3>
+
+		<button @click="isthisyes">ซื้อหรือไม่ซื้อ</button>
+		<h2>{{yesno.answer}}</h2>
+		<img :src="yesno.image"><br>
+		Make Up List
+		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">
+			<img :src="`https://picsum.photos/seed/picsum/200/300`" alt="">
+		{{u.name}}</h2>
 	</div>
 	
 
 	<script>
-		fetch('https://opentdb.com/api.php?amount=10&type=multiple')
+		fetch('http://makeup-api.herokuapp.com/api/v1/products.json')
 		.then(response => response.json())
 		.then(json => {console.log(json)
 			app.users = json
@@ -33,34 +39,44 @@
 			methods:{
 				viewBio: function (users) {
 					this.person = users
+					this.yesno = {
+							"answer":"ให้ปุ่มนี้ทำนายกัน",
+							"forced":false,
+							"image":""}
+				},
+				isthisyes: function(){
+					fetch('https://yesno.wtf/api')
+					.then(response => response.json())
+					.then(json => {console.log(json)
+						app.yesno = json
+					})
 				}
 			},
 			data: {
+				yesno:{
+					"answer":"ให้ปุ่มนี้ทำนายกัน",
+					"forced":false,
+					"image":""},
 				person :{
-					
-					"id": 1,
-					"properties": {
-						"name": "loading....",
-						"address": "loading....",
-						"tel": "loading....",
-						"web": "loading....",
-						"fax": "loading....",
-					}
+					"id":1048,
+					"brand":"__________",
+					"name":"__________",
+					"price":"__________",
+					"price_sign":"__________",
+					"product_link":"__________"
 				},
-				users:[
+				users :[
 				{
-					"id": 1,
-					"properties": {
-						"name": "loading....",
-						"address": "loading....",
-						"tel": "loading....",
-						"web": "loading....",
-						"fax": "loading....",
-					}
-				}
-					]
+					"id":1048,
+					"brand":"__________",
+					"name":"__________",
+					"price":"__________",
+					"price_sign":"__________",
+					"product_link":"__________"}
+				],
+				
+			}
 					
-				}	
 				
 			
 		})
