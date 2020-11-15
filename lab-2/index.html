@@ -21,13 +21,13 @@
 	
 
 	<script>
-		fetch('https://data.go.th/dataset/84954e4a-3302-4b05-9dfc-c636f30b62ab/resource/31ddd8a7-c99a-43eb-8c2e-9644ddb1608b/download/university.json')
+		fetch('https://opentdb.com/api.php?amount=10&type=multiple')
 		.then(response => response.json())
 		.then(json => {console.log(json)
 			app.users = json
 			app.person = json[0]
 		})
-
+		
 		let app = new Vue({
 			el: '#app',
 			methods:{
