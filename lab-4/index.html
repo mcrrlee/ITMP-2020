@@ -74,10 +74,18 @@
 					this.h= rand(50,250)
 					this.l= rand(40,80)
 					app.score+=1
+					app.time+=5
 					console.log('COrrect')
 				},
 				incorrect:function(){
-					app.score-=1
+					if (app.score==0){
+						app.score=0
+						
+					}
+					else{
+						app.score-=1
+					}
+					app.time-=5
 				}
 			}
 		})
