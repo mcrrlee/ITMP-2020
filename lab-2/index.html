@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The Members - ITKMITL Multimedia Programming 2563</title>
+	<title>Make up Check</title>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<link rel="stylesheet" type="text/css" href="lab.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 </head>
+
 <body>
+	<center>
 	<div id="app">
-		Make Up 
+		<h1>World of Make Up </h3>
 		
 		<h3>Id : {{person.id}}</h3>
 		<h3>Name : {{person.name}}</h3>
 		<h3>Brand : {{person.brand}}</h3>
 		<h3>Price : {{person.price}} {{person.price_sign}}</h3>
 		<h3>Link : {{person.product_link}}</h3>
+		
 
 		<button @click="isthisyes">ซื้อหรือไม่ซื้อ</button>
 		<h2>{{yesno.answer}}</h2>
 		<img :src="yesno.image"><br>
-		Make Up List
+		
+		<h2>Make Up List</h2>
+		<h3>กรุณารอสักครู่</h3>
 		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">
 			<img :src="`https://picsum.photos/seed/picsum/200/300`" alt="">
-		{{u.name}}</h2>
+		<br>{{u.name}}</h2>
 	</div>
 	
 
@@ -40,7 +47,7 @@
 				viewBio: function (users) {
 					this.person = users
 					this.yesno = {
-							"answer":"ให้ปุ่มนี้ทำนายกัน",
+							"answer":"ถ้าลังเล CLick",
 							"forced":false,
 							"image":""}
 				},
@@ -54,16 +61,18 @@
 			},
 			data: {
 				yesno:{
-					"answer":"ให้ปุ่มนี้ทำนายกัน",
+					"answer":"ถ้าลังเล CLick",
 					"forced":false,
 					"image":""},
 				person :{
 					"id":1048,
-					"brand":"__________",
-					"name":"__________",
-					"price":"__________",
-					"price_sign":"__________",
-					"product_link":"__________"
+					"brand":"Lippie Pencil",
+					"name":"colourpop",
+					"price":"5.0",
+					"price_sign":"$",
+					"product_link":"https://colourpop.com/collections/lippie-pencil"
+					
+					
 				},
 				users :[
 				{
@@ -73,6 +82,7 @@
 					"price":"__________",
 					"price_sign":"__________",
 					"product_link":"__________"}
+
 				],
 				
 			}
@@ -82,5 +92,6 @@
 		})
 
 	</script>
+	</center>
 </body>
 </html>
